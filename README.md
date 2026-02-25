@@ -63,8 +63,44 @@ This skill is unique in its support for **JAX-based physics-driven design**. By 
 2. Differentiate through a FEM simulation to find optimal parameters.
 3. Update the high-fidelity CAD model with the optimized results.
 
+## 📚 References & Acknowledgments
+
+### Foundational Frameworks
+- **[Gemini CLI](https://github.com/google/gemini-cli):** The primary agent interface and skill system provider.
+- **[FreeCAD](https://www.freecad.org/):** The open-source parametric 3D modeler powering the geometric engine.
+- **[JAX-FEM](https://github.com/deepmodeling/jax-fem):** The differentiable finite element package enabling structural optimization.
+
+### Inspiration & Community
+- **[drawio-mcp](https://github.com/1kaiser/drawio-mcp):** Inspired the "Skill + CLI" architectural pattern for seamless tool integration.
+- **[freecad-mcp](https://github.com/neka-nat/freecad-mcp):** Provided initial insights into MCP-based CAD control.
+
+### Academic Citations
+If you use this workflow in academic research, please consider citing the following foundational works:
+
+**JAX-FEM (Structural Optimization):**
+```bibtex
+@article{xue2023jax,
+  title={JAX-FEM: A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science},
+  author={Xue, Tianju and Liao, Shuheng and Gan, Zhengtao and Park, Chanwook and Xie, Xiaoyu and Liu, Wing Kam and Cao, Jian},
+  journal={Computer Physics Communications},
+  pages={108802},
+  year={2023},
+  publisher={Elsevier}
+}
+```
+
+**FreeCAD (Geometric Modeling):**
+```bibtex
+@online{freecad2024,
+  author = {The FreeCAD Team},
+  title = {FreeCAD: An open-source parametric 3D modeler},
+  year = {2024},
+  url = {https://www.freecad.org}
+}
+```
+
 ## 📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 Created and maintained by [1kaiser](https://github.com/1kaiser)
