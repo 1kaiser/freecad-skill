@@ -2,6 +2,8 @@
 
 The first native **Gemini CLI skill** for automated 3D modeling, CAD engineering, and differentiable physical optimization. This skill transforms Gemini CLI into an autonomous CAD engineer capable of designing, simulating, and optimizing 3D structures through the FreeCAD Python API.
 
+![FreeCAD Tree Example](screenshot.png)
+
 ## 🌟 Key Features
 
 - **Autonomous 3D Modeling:** Ask Gemini to design complex parts (brackets, flanges, gears) using natural language.
@@ -45,16 +47,24 @@ Once installed, reload your skills (`/skills reload`) and command the agent:
 "Create a STEP file for a custom cooling manifold with integrated fins."
 ```
 
+## 📓 Using Google Colab & Local LLMs (Ollama)
+You can easily adapt this workflow to run within a Google Colab notebook, using a local LLM (like Ollama) to process user instructions and drive FreeCAD:
+
+1. **Setup FreeCAD in Colab**: Install the FreeCAD packages directly in the Colab environment.
+2. **Connect to Ollama**: Run an Ollama instance (e.g., via `ngrok`, `localtunnel`, or natively if applicable) to interpret natural language requirements.
+3. **Generate & Execute**: Prompt the model to output Python scripts using the `FreeCAD` and `Part` APIs. Save the generated code to a file and run it with `freecadcmd -c generated_script.py` within the Colab cell.
+4. **Visualize**: Use libraries like `pyvista`, `trimesh`, or `matplotlib` to render the exported `.stl` or `.obj` files directly within the notebook interface.
+
 ## 📁 Repository Structure
 
 ```text
 .
-├── freecad/            # Native Gemini CLI Skill Definition (SKILL.md)
-├── examples/           # Procedural and Differentiable CAD examples
-│   ├── create_tree.py  # Basic procedural modeling
-│   ├── optimize_tree.py# JAX-FEM structural optimization
-│   └── colored_tree.py # High-fidelity GLB with vertex colors
-└── README.md           # Professional documentation
+├── freecad/                                  # Native Gemini CLI Skill Definition (SKILL.md)
+├── examples/                                 # Procedural and Differentiable CAD examples
+│   ├── FreeCAD_Ollama_Colab.ipynb            # Jupyter Notebook encompassing the procedural FreeCAD tree creation + Ollama inference inside Colab
+│   ├── optimize_tree.py                      # JAX-FEM structural optimization
+│   └── colored_tree.py                       # High-fidelity GLB with vertex colors
+└── README.md                                 # Professional documentation
 ```
 
 ## 🧪 Advanced: Differentiable Optimization
