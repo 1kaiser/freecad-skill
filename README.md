@@ -59,12 +59,12 @@ You can easily adapt this workflow to run within a Google Colab notebook, using 
 
 ```text
 .
-├── freecad/            # Native Gemini CLI Skill Definition (SKILL.md)
-├── examples/           # Procedural and Differentiable CAD examples
-│   ├── create_tree.py  # Basic procedural modeling
-│   ├── optimize_tree.py# JAX-FEM structural optimization
-│   └── colored_tree.py # High-fidelity GLB with vertex colors
-└── README.md           # Professional documentation
+├── freecad/                                  # Native Gemini CLI Skill Definition (SKILL.md)
+├── examples/                                 # Procedural and Differentiable CAD examples
+│   ├── FreeCAD_Ollama_Colab.ipynb            # Jupyter Notebook encompassing the procedural FreeCAD tree creation + Ollama inference inside Colab
+│   ├── optimize_tree.py                      # JAX-FEM structural optimization
+│   └── colored_tree.py                       # High-fidelity GLB with vertex colors
+└── README.md                                 # Professional documentation
 ```
 
 ## 🧪 Advanced: Differentiable Optimization
