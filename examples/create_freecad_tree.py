@@ -34,18 +34,18 @@ def create_tree():
     doc.recompute()
     
     # 3. Export to STEP
-    output_path = "/home/kaiser/gemini_project2/tree_model.step"
+    output_path = os.path.abspath("tree_model.step")
     Part.export([trunk, foliage1, foliage2, foliage3], output_path)
     print(f"Tree model successfully exported to {output_path}")
 
     # 4. Also export to STL for 3D viewers
-    output_stl = "/home/kaiser/gemini_project2/tree_model.stl"
+    output_stl = os.path.abspath("tree_model.stl")
     import Mesh
     Mesh.export([trunk, foliage1, foliage2, foliage3], output_stl)
     print(f"Tree model successfully exported to {output_stl}")
 
     # 5. Export to OBJ for GLB conversion
-    output_obj = "/home/kaiser/gemini_project2/tree_model.obj"
+    output_obj = os.path.abspath("tree_model.obj")
     import Mesh
     Mesh.export([trunk, foliage1, foliage2, foliage3], output_obj)
     print(f"Tree model successfully exported to {output_obj}")
