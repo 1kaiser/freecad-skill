@@ -147,5 +147,39 @@ def main():
     Mesh.export([comp], out_stl)
     print(f"Exported STL to {out_stl}")
 
+    # Export individual material groups for rendering
+    # 1. Altar
+    altar_comp = doc.addObject("Part::Compound", "AltarGroup")
+    altar_comp.Links = parts[0:3]
+    doc.recompute()
+    out_altar = "/home/kaiser/projects/freecad-skill/freecad/examples/temple_altar.stl"
+    Mesh.export([altar_comp], out_altar)
+    print(f"Exported Altar STL to {out_altar}")
+
+    # 2. Walls and Pillars
+    wp_comp = doc.addObject("Part::Compound", "WallsPillarsGroup")
+    wp_comp.Links = parts[3:32]
+    doc.recompute()
+    out_wp = "/home/kaiser/projects/freecad-skill/freecad/examples/temple_walls_pillars.stl"
+    Mesh.export([wp_comp], out_wp)
+    print(f"Exported Walls/Pillars STL to {out_wp}")
+
+    # 3. Roofs
+    roofs_comp = doc.addObject("Part::Compound", "RoofsGroup")
+    roofs_comp.Links = parts[32:35]
+    doc.recompute()
+    out_roofs = "/home/kaiser/projects/freecad-skill/freecad/examples/temple_roofs.stl"
+    Mesh.export([roofs_comp], out_roofs)
+    print(f"Exported Roofs STL to {out_roofs}")
+
+    # 4. Finial
+    finial_comp = doc.addObject("Part::Compound", "FinialGroup")
+    finial_comp.Links = [parts[35]]
+    doc.recompute()
+    out_finial = "/home/kaiser/projects/freecad-skill/freecad/examples/temple_finial.stl"
+    Mesh.export([finial_comp], out_finial)
+    print(f"Exported Finial STL to {out_finial}")
+
 if __name__ == "__main__":
     main()
+
