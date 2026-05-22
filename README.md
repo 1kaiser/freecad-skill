@@ -59,13 +59,42 @@ To verify that the FreeCAD integration works correctly, a mounting bracket was g
 #### Rendered output:
 ![Mounting Bracket Render](freecad/examples/bracket.png)
 
-### ⛩️ Temple of Heaven Example
-To verify multi-part assembly, custom materials, and solar illumination rendering:
+### ⛩️ Temple of Heaven & General Multi-View Plotting Example
+To verify multi-part assembly, custom materials, solar path illumination, and general 3D plotting functionality:
 1. **Geometry Generation (`create_temple.py`)**: Models the Hall of Prayer for Good Harvests and its three-tiered marble altar, exporting individual components to separate STL files.
-2. **Multi-View Solar Render (`render_multi_view.py`)**: Configures custom shaders (marble, gold, cobalt blue, imperial red), sets up lighting mimicking the solar path in Beijing in April, and renders a combined multi-view panel.
+2. **Generalized Multi-View Plotter (`render_multi_view.py`)**: A fully parameterizable CLI utility that can render multi-view orthographic and isometric previews for **any** 3D model (supporting `.stl`, `.obj`, `.step`, `.stp`, `.iges`, `.igs`, `.brep`, `.fcstd` file formats) with customizable materials, colors, background colors, camera distance, zoom, views, and solar angles.
 
 #### Rendered output:
 ![Temple of Heaven Multi-view Render](freecad/examples/temple_preview.png)
+
+#### CLI Usage Examples:
+```bash
+# Render default Temple of Heaven model:
+/home/kaiser/.conda/envs/freecad_env/bin/python freecad/examples/render_multi_view.py
+
+# Render an arbitrary STL model with custom color, glossy material, custom views, dark background, and headlight:
+/home/kaiser/.conda/envs/freecad_env/bin/python freecad/examples/render_multi_view.py \
+  -i freecad/examples/bracket.stl \
+  -c "#33A8FF" \
+  -m glossy \
+  -o freecad/examples/bracket_custom.png \
+  --views top front isometric \
+  --bg-color "#0E1117" \
+  --headlight 0.4
+
+# Render a STEP file directly (automatically converted to temporary mesh via FreeCAD):
+/home/kaiser/.conda/envs/freecad_env/bin/python freecad/examples/render_multi_view.py \
+  -i freecad/examples/bracket.step \
+  -o freecad/examples/bracket_step_custom.png \
+  -c "#FF9933" \
+  -m glossy
+```
+
+##### Custom STL Multi-View Render (`bracket_custom.png`):
+![Custom Bracket Render](freecad/examples/bracket_custom.png)
+
+##### STEP Dynamic Mesh Multi-View Render (`bracket_step_custom.png`):
+![Custom STEP Bracket Render](freecad/examples/bracket_step_custom.png)
 
 ## 📁 Repository Structure
 
