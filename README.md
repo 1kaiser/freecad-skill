@@ -59,6 +59,14 @@ To verify that the FreeCAD integration works correctly, a mounting bracket was g
 #### Rendered output:
 ![Mounting Bracket Render](freecad/examples/bracket.png)
 
+### ⛩️ Temple of Heaven Example
+To verify multi-part assembly, custom materials, and solar illumination rendering:
+1. **Geometry Generation (`create_temple.py`)**: Models the Hall of Prayer for Good Harvests and its three-tiered marble altar, exporting individual components to separate STL files.
+2. **Multi-View Solar Render (`render_multi_view.py`)**: Configures custom shaders (marble, gold, cobalt blue, imperial red), sets up lighting mimicking the solar path in Beijing in April, and renders a combined multi-view panel.
+
+#### Rendered output:
+![Temple of Heaven Multi-view Render](freecad/examples/temple_preview.png)
+
 ## 📁 Repository Structure
 
 ```text
@@ -68,8 +76,11 @@ To verify that the FreeCAD integration works correctly, a mounting bracket was g
 │   └── examples/                             # Procedural and Differentiable CAD examples
 │       ├── test_bracket.py                   # Generates STEP and STL of a mounting bracket
 │       ├── render_stl.py                     # Headless VTK script that renders STL to PNG
-│       ├── bracket.png                       # Rendered image of the bracket (shown above)
-│       ├── FreeCAD_Ollama_Colab.ipynb        # Jupyter Notebook with procedural tree creation inside Colab
+│       ├── bracket.png                       # Rendered image of the bracket
+│       ├── create_temple.py                  # Procedural modeling of the Temple of Heaven
+│       ├── render_multi_view.py              # Multi-view rendering with April sun path and materials
+│       ├── temple_preview.png                # Combined rendering preview of the Temple
+│       ├── FreeCAD_Ollama_Colab.ipynb        # Jupyter Notebook with tree creation inside Colab
 │       ├── optimize_tree.py                  # JAX-FEM structural optimization
 │       └── create_colored_tree_v2.py         # High-fidelity GLB with vertex colors
 └── README.md                                 # Professional documentation
