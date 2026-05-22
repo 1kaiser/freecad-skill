@@ -27,15 +27,16 @@ npm install -g obj2gltf
 ```
 
 ### 2. Installation
-Install the skill directly into your Gemini CLI environment:
+Install the skill directly into your Antigravity CLI environment by copying or symlinking the `freecad` directory to your global skills path:
 
 ```bash
 # Clone the repository
 git clone https://github.com/1kaiser/freecad-skill.git
 cd freecad-skill
 
-# Install via Gemini CLI
-gemini skills install ./freecad --scope user
+# Copy to Antigravity CLI skills directory
+mkdir -p ~/.gemini/skills/freecad
+cp -r freecad/* ~/.gemini/skills/freecad/
 ```
 
 ### 3. Usage
@@ -59,11 +60,12 @@ You can easily adapt this workflow to run within a Google Colab notebook, using 
 
 ```text
 .
-├── freecad/                                  # Native Gemini CLI Skill Definition (SKILL.md)
-├── examples/                                 # Procedural and Differentiable CAD examples
-│   ├── FreeCAD_Ollama_Colab.ipynb            # Jupyter Notebook encompassing the procedural FreeCAD tree creation + Ollama inference inside Colab
-│   ├── optimize_tree.py                      # JAX-FEM structural optimization
-│   └── colored_tree.py                       # High-fidelity GLB with vertex colors
+├── freecad/                                  # Native Antigravity CLI Skill Definition
+│   ├── SKILL.md                              # Main instruction file and metadata
+│   └── examples/                             # Procedural and Differentiable CAD examples
+│       ├── FreeCAD_Ollama_Colab.ipynb        # Jupyter Notebook with procedural tree creation inside Colab
+│       ├── optimize_tree.py                  # JAX-FEM structural optimization
+│       └── create_colored_tree_v2.py         # High-fidelity GLB with vertex colors
 └── README.md                                 # Professional documentation
 ```
 
