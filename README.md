@@ -1,14 +1,14 @@
-# FreeCAD Skill for Gemini CLI 🛠️
+# FreeCAD Skill for Antigravity CLI 🛠️
 
-The first native **Gemini CLI skill** for automated 3D modeling, CAD engineering, and differentiable physical optimization. This skill transforms Gemini CLI into an autonomous CAD engineer capable of designing, simulating, and optimizing 3D structures through the FreeCAD Python API.
+The first native **Antigravity CLI skill** for automated 3D modeling, CAD engineering, and differentiable physical optimization. This skill transforms the Antigravity CLI agent into an autonomous CAD engineer capable of designing, simulating, and optimizing 3D structures through the FreeCAD Python API.
 
 ![FreeCAD Tree Example](screenshot.png)
 
 ## 🌟 Key Features
 
-- **Autonomous 3D Modeling:** Ask Gemini to design complex parts (brackets, flanges, gears) using natural language.
+- **Autonomous 3D Modeling:** Ask the agent to design complex parts (brackets, flanges, gears) using natural language.
 - **Differentiable CAD:** Integrated with **JAX-FEM** for automated structural optimization (e.g., finding the optimal radius for a tree trunk based on physical loads).
-- **Headless CLI Workflow:** Optimized for terminal environments using `freecadcmd` and `xvfb-run`.
+- **Headless CLI Workflow:** Optimized for terminal environments using `freecadcmd` and headless virtual frames (`Xvfb`).
 - **Multi-Format Export:** Seamlessly export to **STEP** (CAD), **STL** (3D Printing), and **GLB** (Web/AR) with automatic Y-up orientation.
 - **Direct Python Control:** Allows the agent to write and execute high-fidelity Python scripts for precise geometric control.
 
@@ -48,13 +48,16 @@ Once installed, reload your skills (`/skills reload`) and command the agent:
 "Create a STEP file for a custom cooling manifold with integrated fins."
 ```
 
-## 📓 Using Google Colab & Local LLMs (Ollama)
-You can easily adapt this workflow to run within a Google Colab notebook, using a local LLM (like Ollama) to process user instructions and drive FreeCAD:
+## 🧪 Verification and Examples
 
-1. **Setup FreeCAD in Colab**: Install the FreeCAD packages directly in the Colab environment.
-2. **Connect to Ollama**: Run an Ollama instance (e.g., via `ngrok`, `localtunnel`, or natively if applicable) to interpret natural language requirements.
-3. **Generate & Execute**: Prompt the model to output Python scripts using the `FreeCAD` and `Part` APIs. Save the generated code to a file and run it with `freecadcmd -c generated_script.py` within the Colab cell.
-4. **Visualize**: Use libraries like `pyvista`, `trimesh`, or `matplotlib` to render the exported `.stl` or `.obj` files directly within the notebook interface.
+### 🛠️ Mounting Bracket Example
+To verify that the FreeCAD integration works correctly, a mounting bracket was generated procedurally and rendered headlessly:
+
+1. **Geometry Generation (`test_bracket.py`)**: Runs a python script using FreeCAD's native Python API to generate a base plate with a hollow cylinder hole, exporting to `bracket.step` and `bracket.stl`.
+2. **Headless Render (`render_stl.py`)**: Spawns a virtual frame buffer `Xvfb` on `:99` with hardware GLX enabled and headlessly renders the generated STL model to a high-quality PNG.
+
+#### Rendered output:
+![Mounting Bracket Render](freecad/examples/bracket.png)
 
 ## 📁 Repository Structure
 
@@ -63,6 +66,9 @@ You can easily adapt this workflow to run within a Google Colab notebook, using 
 ├── freecad/                                  # Native Antigravity CLI Skill Definition
 │   ├── SKILL.md                              # Main instruction file and metadata
 │   └── examples/                             # Procedural and Differentiable CAD examples
+│       ├── test_bracket.py                   # Generates STEP and STL of a mounting bracket
+│       ├── render_stl.py                     # Headless VTK script that renders STL to PNG
+│       ├── bracket.png                       # Rendered image of the bracket (shown above)
 │       ├── FreeCAD_Ollama_Colab.ipynb        # Jupyter Notebook with procedural tree creation inside Colab
 │       ├── optimize_tree.py                  # JAX-FEM structural optimization
 │       └── create_colored_tree_v2.py         # High-fidelity GLB with vertex colors
